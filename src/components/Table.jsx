@@ -5,7 +5,7 @@ const groups = [
 ];
 const errors = ["Суббота", "Воскресенье"];
 export default function Table({ schedule, day, group }) {
-  let error;
+  let error = false;
   useEffect(() => {
     for (let i = 0; i < groups.length; i++) {
       if (group != groups[i]) {
@@ -31,7 +31,9 @@ export default function Table({ schedule, day, group }) {
     <div className="table">
       <div className="timeCode">
         {currentGroup["Время"].map((obj, i) => (
-          <div className="time">{obj}</div>
+          <div key={i} className="time">
+            {obj}
+          </div>
         ))}
       </div>
       <div className="rows">

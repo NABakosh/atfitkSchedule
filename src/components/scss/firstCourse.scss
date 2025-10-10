@@ -63,8 +63,11 @@
 @media (max-width: 400px) {
   .row,
   .time {
-    padding: 0px 5px;
+    padding: 7px;
     height: 70px;
     font-size: 12px;
+  }
+  .row {
+    width: 150px;
   }
 }
