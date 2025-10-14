@@ -1,6 +1,6 @@
 import styles from "./teachers.module.scss";
 import schedule from "../schedule1.json";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react"; // Добавлен useMemo
 
 export default function Teachers() {
   const handleDays = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница"];
@@ -10,6 +10,7 @@ export default function Teachers() {
 
   const sortedScehedule = schedule[0];
   const keys = Object.keys(sortedScehedule);
+
   const search = () => {
     if (!teacher.trim()) {
       setResults([]);
@@ -54,6 +55,28 @@ export default function Teachers() {
     search();
   }, [teacher]);
 
+  /**
+   * Функция для группировки массива результатов по дню недели.
+   * Возвращает объект вида: { "Понедельник": [...results], "Вторник": [...results] }
+   */
+  const groupedResults = useMemo(() => {
+    if (results.length === 0) return {};
+
+    return results.reduce((acc, item) => {
+      const day = item.day;
+      if (!acc[day]) {
+        acc[day] = [];
+      }
+      acc[day].push(item);
+      return acc;
+    }, {});
+  }, [results]); // Пересчитываем только при изменении массива results
+
+  // Получаем список дней в правильном порядке
+  const daysWithResults = handleDays.filter(
+    (day) => groupedResults[day] && groupedResults[day].length > 0
+  );
+
   return (
     <div className={styles.teachersPage}>
       <h2>Расписание преподавателей</h2>
@@ -63,17 +86,31 @@ export default function Teachers() {
         value={teacher}
         onChange={(e) => setTeacher(e.target.value)}
       />
-      <button onClick={search}>Поиск</button>
 
-      <div className={styles.results}>
+      {/* Вместо прямого отображения results.map теперь итерируемся по сгруппированным результатам */}
+      <div className={styles.resultsContainer}>
+        {" "}
+        {/* Добавим новый контейнер для группировки стилей */}
         {results.length > 0 ? (
-          results.map((item, index) => (
-            <div key={index} className={styles.resultItem}>
-              <p>
-                **Группа:** {item.group}, **День:** {item.day}, **Время:**{" "}
-                {item.time}
-              </p>
-              <p>**Пара:** {item.lesson}</p>
+          // Итерация по дням, в которых есть результаты
+          daysWithResults.map((day) => (
+            <div key={day} className={styles.dayGroup}>
+              {/* Заголовок дня */}
+              <h3 className={styles.dayHeader}>{day}</h3>
+
+              {/* Контейнер для уроков этого дня */}
+              <div className={styles.results}>
+                {groupedResults[day].map((item, index) => (
+                  <div key={`${day}-${index}`} className={styles.resultItem}>
+                    <p>
+                      {item.group} Группа
+                      <br />
+                      Время: {item.time}
+                    </p>
+                    <p>{item.lesson}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           ))
         ) : teacher.trim() ? (
