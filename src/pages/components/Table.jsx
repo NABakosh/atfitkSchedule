@@ -6,6 +6,7 @@ export default function Table({ schedule, day, group }) {
     return Number(obj);
   });
   const currentGroup = schedule[group];
+  console.log(currentGroup);
 
   const isWeekend = day === errors[0] || day === errors[1];
   const isGroupMissing = currentGroup === undefined;
