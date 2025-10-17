@@ -1,13 +1,10 @@
-// --- Константы ---
 $gap-value: 10px;
-$accent-color: #3498db; // Синий для акцентов
-$background-dark: rgb(60, 60, 60); // Темный фон для блоков
-$block-radius: 12px; // Общий радиус скругления
+$accent-color: #3498db;
+$background-dark: rgb(60, 60, 60);
+$block-radius: 12px;
 
-// --- Общие стили страницы ---
 .teachersPage {
   padding: 1rem;
-  // Центрируем основное содержимое страницы
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,31 +13,27 @@ $block-radius: 12px; // Общий радиус скругления
 .teachersPage h2 {
   margin: 0 0 1rem 0;
   text-align: center;
-  color: #333; // Более темный цвет заголовка
+  color: #333;
 }
 
-// --- Стиль для элемента ввода (INPUT) ---
 .input {
-  // Уменьшаем ширину по умолчанию, чтобы не выглядел растянутым
   width: 250px;
-  height: 35px; // Увеличиваем высоту для удобства
-  padding: 0 10px; // Добавляем горизонтальный отступ
+  height: 35px;
+  padding: 0 10px;
   margin-bottom: 10px;
 
-  // Делаем красивее
   border: 1px solid #ccc;
-  border-radius: $block-radius; // Скругление углов
+  border-radius: $block-radius;
   font-size: 16px;
   transition: border-color 0.3s;
   outline: none;
 
   &:focus {
-    border-color: $accent-color; // Синяя рамка при фокусе
+    border-color: $accent-color;
     box-shadow: 0 0 5px rgba($accent-color, 0.5);
   }
 }
 
-// Стиль для кнопки (не было в запросе, но для полноты)
 button {
   height: 35px;
   padding: 0 15px;
@@ -51,89 +44,7 @@ button {
   border-radius: $block-radius;
   cursor: pointer;
   transition: background-color 0.3s;
-
   &:hover {
     background-color: darken($accent-color, 10%);
-  }
-}
-
-// --- Контейнер для общих стилей страницы ---
-.resultsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-// --- Блок для каждого дня ---
-.dayGroup {
-  width: 100%;
-  max-width: 1000px; // Чуть сузили общую область
-  padding: 0 10px;
-}
-
-.dayHeader {
-  text-align: center;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid $accent-color; // Акцентная линия
-  font-size: 1.4rem;
-  color: #333;
-}
-
-// --- Контейнер для списка уроков ---
-.results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: $gap-value;
-}
-
-// --- Стиль для отдельного урока (resultItem) ---
-.resultItem {
-  // Базовые стили
-  padding: 10px;
-  background-color: $background-dark;
-  color: white;
-  border-radius: $block-radius;
-  text-align: center;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-
-  // *СУЖАЕМ БЛОКИ*
-  max-width: 280px; // Уменьшаем максимальную ширину для мобильных и 1-колонного режима
-
-  p {
-    margin: 5px 0;
-    line-height: 1.3;
-  }
-
-  &:hover {
-    transform: translateY(-2px); // Небольшой эффект при наведении
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  // --- 1. Стиль для маленьких экранов (1 блок в ряд, ограничение max-width 280px) ---
-  flex: 0 1 100%;
-  // max-width 280px уже установлен выше
-}
-
-// --- 2. Медиазапрос для средних экранов (≥ 576px: 2 блока в ряд) ---
-@media (min-width: 576px) {
-  .resultItem {
-    // Ширина: (100% - 1 gap) / 2
-    flex: 0 1 calc((100% - #{$gap-value}) / 2);
-    max-width: 350px; // Увеличиваем max-width, но оставляем его ограниченным
-  }
-}
-
-// --- 3. Медиазапрос для больших экранов (≥ 992px: 3 блока в ряд) ---
-@media (min-width: 992px) {
-  .resultItem {
-    // Ширина: (100% - 2 gap) / 3
-    flex: 0 1 calc((100% - (2 * #{$gap-value})) / 3);
-    max-width: 300px; // Сужаем для лучшей читаемости в 3 колонках
   }
 }
