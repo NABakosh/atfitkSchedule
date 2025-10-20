@@ -46,7 +46,6 @@ export default function Teachers() {
   }, {});
   useEffect(() => {
     search();
-    console.log(grouppedSchedule);
   }, [teacher]);
   return (
     <div className={styles.teachersPage}>
@@ -59,11 +58,27 @@ export default function Teachers() {
           onChange={(e) => setTeacher(e.target.value)}
         />
         <button onClick={() => search()}>Поиск</button>
-        <div className="dataLists">
+        <div className={styles.dayLists}>
           {handleKeys.map((obj, i) => {
-            const todaysLesson = grouppedSchedule[obj];
+            const lesson = grouppedSchedule[obj];
             console.log(grouppedSchedule);
+            console.log(lesson);
             console.log(obj);
+            if (lesson == undefined) {
+              return null;
+            }
+            return (
+              <div className={styles.dataLists} key={i}>
+                <h2>{obj}</h2>
+                {lesson.map((data, j) => (
+                  <div className={styles.teacherSchedule}>
+                    <p>{data.group}</p>
+                    <p>{data.time}</p>
+                    <p>{data.lesson}</p>
+                  </div>
+                ))}
+              </div>
+            );
           })}
         </div>
       </main>
