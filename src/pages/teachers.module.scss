@@ -49,20 +49,47 @@ button {
   }
 }
 .dayLists {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .dataLists {
+  padding-bottom: 20px;
   display: flex;
-  gap: 20px;
   flex-direction: column;
+  border-top: 2px solid #3498db;
 }
 .teacherSchedule {
+  padding: 10px 5px;
   width: 200px;
+  min-height: 100px;
+  max-width: 200px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #333;
   color: white;
+}
+.listStyle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+}
+
+@media (max-width: 1000px) {
+  .listStyle {
+    width: 500px;
+  }
+}
+
+@media (max-width: 450px) {
+  .listStyle {
+    width: 300px;
+  }
 }

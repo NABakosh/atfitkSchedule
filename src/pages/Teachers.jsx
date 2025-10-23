@@ -18,7 +18,8 @@ export default function Teachers() {
         const time = groupWeekend["Время"];
         const groupData = groupWeekend[weekKeys[j]];
         groupData.forEach((element, k) => {
-          if (element.includes(teacher)) {
+          const el = element.toLowerCase();
+          if (el.includes(teacher.toLowerCase())) {
             console.log(
               `Группа: ${groupNumber}, День: ${weekKeys[j]}, Время: ${time[k]}, Пара: ${element}`
             );
@@ -70,13 +71,15 @@ export default function Teachers() {
             return (
               <div className={styles.dataLists} key={i}>
                 <h2>{obj}</h2>
-                {lesson.map((data, j) => (
-                  <div className={styles.teacherSchedule}>
-                    <p>{data.group}</p>
-                    <p>{data.time}</p>
-                    <p>{data.lesson}</p>
-                  </div>
-                ))}
+                <div className={styles.listStyle}>
+                  {lesson.map((data, j) => (
+                    <ul className={styles.teacherSchedule}>
+                      <p>{data.group}</p>
+                      <p>{data.time}</p>
+                      <p>{data.lesson}</p>
+                    </ul>
+                  ))}
+                </div>
               </div>
             );
           })}
