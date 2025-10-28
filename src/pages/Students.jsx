@@ -70,6 +70,7 @@ function Students() {
 						<button onClick={() => handleChangeDay(1)}>
 							<img src={right} width={25} />
 						</button>
+						
 					</div>
 				</div>
 				<Suspense fallback={<div>Загрузка...</div>}>

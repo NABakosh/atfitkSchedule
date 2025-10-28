@@ -1,6 +1,7 @@
 import styles from "./teachers.module.scss";
 import schedule from "../schedule1.json";
 import { useEffect, useState } from "react";
+
 export default function Teachers() {
   const handleKeys = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница"];
   const [teacher, setTeacher] = useState("");
