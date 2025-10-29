@@ -7,7 +7,8 @@
     "init-tailwind": "tailwindcss init -p",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "npx eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -20,12 +21,13 @@
     "ssas": "^0.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
+    "@eslint/js": "^9.38.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
     "@vitejs/plugin-react-swc": "^4.1.0",
-    "eslint": "^9.36.0",
+    "eslint": "^9.38.0",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
