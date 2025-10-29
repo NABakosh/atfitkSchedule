@@ -1,0 +1,30 @@
+  name: CI
+
+on:
+  push:
+    branches: [ main ] # Или master, в зависимости от вашей основной ветки
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v4
+
+    - name: ⚙️ Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Используйте версию Node.js вашего проекта
+        cache: 'npm' # или 'yarn', 'pnpm'
+
+    - name: 📦 Install dependencies
+      run: npm install # или yarn install
+
+    - name: 🛡️ Run ESLint
+      run: npm run lint
+
+    - name: 🏗️ Run build (опционально)
+      run: npm run build
