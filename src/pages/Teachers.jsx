@@ -1,6 +1,7 @@
 import styles from "./teachers.module.scss";
 import schedule from "../schedule1.json";
 import { useEffect, useState } from "react";
+
 export default function Teachers() {
   const handleKeys = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница"];
   const [teacher, setTeacher] = useState("");
@@ -52,6 +53,9 @@ export default function Teachers() {
     <div className={styles.teachersPage}>
       <main>
         <h2>Расписание преподавателей</h2>
+        <header class="update-notification" style={{ marginBottom: "10px" }}>
+          В связи с обновлением расписание вторых курсов не актуально
+        </header>
         <input
           placeholder="Введите фамилию!"
           className={styles.input}
