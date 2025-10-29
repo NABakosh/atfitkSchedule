@@ -14,7 +14,7 @@ export default function Table({ schedule, day, group }) {
   const isScheduleEmpty = schedule.length < 0;
 
   const isGroupValid = groups.includes(Number(group));
-	
+
   if (isWeekend) {
     return (
       <div className="holiday">

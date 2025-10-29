@@ -1,107 +1,123 @@
 .studentsPage {
-	margin-top: 5vh;
-	min-height: 80vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: start;
-	height: auto;
-	gap: 10px;
+  margin-top: 5vh;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: auto;
+  gap: 10px;
 }
 .groupBar {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 1em;
-	padding: 0px 0px 20px 0px;
-	input {
-		height: 25px;
-		width: 40px;
-		text-align: center;
-		font-size: 18px;
-	}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 0px 0px 20px 0px;
+  input {
+    height: 25px;
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+  }
 }
 .schedule {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .table {
-	display: flex;
-	gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 .col {
-	color: #f2f2f2;
-	padding: 10px 20px;
-	border-radius: 10px;
+  color: #f2f2f2;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 .columns {
-	display: flex;
+  display: flex;
 }
 .rows,
 .timeCode {
-	display: flex;
-	flex-direction: column;
-	color: white;
-	gap: 5px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 5px;
 }
 .row,
 .time {
-	padding: 0px 15px;
-	height: 100px;
-	border-radius: 16px;
-	background-color: rgb(60, 60, 60);
-	display: flex;
-	white-space: pre-wrap;
-	justify-content: center;
-	align-items: center;
+  padding: 0px 15px;
+  height: 100px;
+  border-radius: 16px;
+  background-color: rgb(60, 60, 60);
+  display: flex;
+  white-space: pre-wrap;
+  justify-content: center;
+  align-items: center;
 }
 .day {
-	justify-content: center;
-	display: flex;
-	gap: 10px;
-	p {
-		font-size: 20px;
-		font-weight: 550;
-	}
-	button {
-		transition: 0.5s;
-		background: none;
-		border: none;
-	}
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  p {
+    font-size: 20px;
+    font-weight: 550;
+  }
+  button {
+    transition: 0.5s;
+    background: none;
+    border: none;
+  }
 }
 @media (max-width: 400px) {
-	.row,
-	.time {
-		padding: 7px;
-		height: 70px;
-		font-size: 12px;
-	}
-	.row {
-		width: 150px;
-	}
+  .row,
+  .time {
+    padding: 7px;
+    height: 70px;
+    font-size: 12px;
+  }
+  .row {
+    width: 150px;
+  }
 }
 .holiday {
-	padding: 0px 15px;
-	height: 100px;
-	border-radius: 16px;
-	display: flex;
-	color: #f2f2f2;
-	background-color: rgb(60, 60, 60);
-	white-space: pre-wrap;
-	justify-content: center;
-	align-items: center;
+  padding: 0px 15px;
+  height: 100px;
+  border-radius: 16px;
+  display: flex;
+  color: #f2f2f2;
+  background-color: rgb(60, 60, 60);
+  white-space: pre-wrap;
+  justify-content: center;
+  align-items: center;
 }
 .saveButton {
-	padding: 5px 10px;
-	border-radius: 8px;
-	font-size: 12px;
-	color: #f2f2f2;
-	cursor: pointer;
-	background-color: rgb(60, 60, 60);
-	transition: 0.5s;
-	&:active {
-		scale: 0.9;
-	}
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #f2f2f2;
+  cursor: pointer;
+  background-color: rgb(60, 60, 60);
+  transition: 0.5s;
+  &:active {
+    scale: 0.9;
+  }
+}
+
+.update-notification {
+  /* Фон и границы */
+  border-bottom: 3px solid #ff9800; /* Яркая оранжевая полоса снизу */
+
+  /* Текст */
+  color: #424242; /* Темно-серый, хорошо читаемый цвет текста */
+  font-size: 1.1em; /* Немного больший размер шрифта */
+  font-weight: 600; /* Полужирный шрифт, чтобы выделить */
+  text-align: center; /* Выравнивание текста по центру */
+
+  /* Отступы */
+
+  /* Эффекты */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень, чтобы приподнять блок */
 }

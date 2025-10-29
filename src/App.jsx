@@ -11,15 +11,16 @@ function App() {
       <nav className="main-nav">
         <Slider></Slider>
       </nav>
+      
       <Routes>
         <Route path="/" element={<Students />} />
         <Route path="/teachers" element={<Teachers />} />
       </Routes>
       <footer className="footer">
         <p>
-          Сайт находиться в стадий обновления <br></br>При нахождений ошибок
-          прошу написать на ватсап
-          <a href="https://wa.me/+77471220635">+77471220635</a>
+          Ведутся технические работы по обновлению сайта <br></br>
+          Об ошибках просим сообщать нам в WhatsApp:
+          <a href="https://wa.me/+77471220635">+7 747 122 06 35</a>
         </p>
         <p></p>
       </footer>
