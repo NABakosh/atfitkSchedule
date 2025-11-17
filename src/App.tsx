@@ -1,5 +1,6 @@
 // 🚀 Импорт React Router
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 // Импорт страниц
 import StudentSchedulePage from "./components/studentSchedule/studentSChedule";
@@ -75,6 +76,7 @@ function App() {
           </div>
         </footer>
       </div>
+      <Analytics />
     </BrowserRouter>
   );
 }
